@@ -1,4 +1,4 @@
-const {connectToMongoDB} = require('../backend/config/db') 
+const {connectToMongoDB} = require('./config/db') 
 const express = require('express')
 const path = require('path')
 const cors = require('cors')
@@ -13,6 +13,10 @@ app.set("views", path.join(__dirname, "public"))
 
 connectToMongoDB()
 
-app.use('',require('../backend/routes/api'))
+app.use('',require('./routes/api'))
 
-app.listen('7860')
+app.get('/test',(req,res)=>{
+    res.json({message:"ACCESSED"}).status(200);
+})
+
+app.listen('3000')
