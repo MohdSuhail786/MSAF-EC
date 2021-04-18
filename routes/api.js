@@ -7,6 +7,7 @@ const { fileUpload } = require('../app/controllers/FileHandling/FileUploadContro
 const { downloadFile } = require('../app/controllers/FileHandling/FileDownloadController')
 const { submitForm } = require('../app/controllers/Form/UserFormController')
 const { listAll } = require('../app/controllers/Form/ListController')
+const { getEmployees } = require('../app/controllers/Employee/EmployeeList')
 
 router.post('/register',registerValidation,register)
 router.post('/login',loginValidation,login)
@@ -21,6 +22,7 @@ router.post('/submitForm',auth,submitForm)
 router.get('/download/:filename',downloadFile)
 
 router.post('/getList',auth,listAll);
+router.post('/getEmployees',auth,getEmployees);
 
 
 router.post('/validate',auth,(req,res)=> {
