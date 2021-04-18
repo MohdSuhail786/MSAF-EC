@@ -14,9 +14,4 @@ app.set("views", path.join(__dirname, "public"))
 connectToMongoDB()
 
 app.use('',require('./routes/api'))
-
-app.get('/test',(req,res)=>{
-    res.json({message:"ACCESSED"}).status(200);
-})
-
 app.listen('3000')
