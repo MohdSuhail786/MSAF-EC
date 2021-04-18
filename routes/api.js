@@ -24,7 +24,7 @@ router.get('/download/:filename',downloadFile)
 
 router.post('/getList',auth,listAll);
 router.get('/getEmployees',auth,getEmployees);
-router.get('/getCSV/:userId',auth,getCsv);
+router.post('/getCSV',auth,getCsv);
 
 
 router.post('/validate',auth,(req,res)=> {
