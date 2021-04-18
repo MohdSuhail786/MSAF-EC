@@ -22,7 +22,7 @@ router.post('/submitForm',auth,submitForm)
 router.get('/download/:filename',downloadFile)
 
 router.post('/getList',auth,listAll);
-router.post('/getEmployees',auth,getEmployees);
+router.get('/getEmployees',auth,getEmployees);
 
 
 router.post('/validate',auth,(req,res)=> {
