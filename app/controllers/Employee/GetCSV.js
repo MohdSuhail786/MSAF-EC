@@ -1,6 +1,6 @@
 const UserForm = require("../../models/UserForm");
 
-exports.getCsv = (req,res)=>{
+exports.getCsv =async (req,res)=>{
     
     list = await UserForm.find({userId:req.body.userId})
     let i = list.length;
