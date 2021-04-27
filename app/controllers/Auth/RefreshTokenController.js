@@ -15,7 +15,7 @@ exports.refreshToken = async (req,res) => {
 
     
         let accessToken = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 30*60 })
-        let RefreshToken = jwt.sign(payload, process.env.REFRESEH_KEY, { expiresIn: 35*60 })
+        let RefreshToken = jwt.sign(payload, process.env.REFRESEH_KEY, { expiresIn: 35*60*60 })
         return res.json({message:"session refreshed",accessToken: accessToken, refreshToken: RefreshToken,type: jwtData.user.type}).status(200)
     } catch (err) {
         return res.json({message:err.message})
