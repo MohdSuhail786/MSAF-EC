@@ -8,7 +8,7 @@ const { downloadFile } = require('../app/controllers/FileHandling/FileDownloadCo
 const { submitForm } = require('../app/controllers/Form/UserFormController')
 const { listAll } = require('../app/controllers/Form/ListController')
 const { getEmployees } = require('../app/controllers/Employee/EmployeeList')
-const { getCsv } = require('../app/controllers/Employee/GetCSV')
+const { getCsv, filterData } = require('../app/controllers/Employee/GetCSV')
 
 router.post('/register',registerValidation,register)
 router.post('/login',loginValidation,login)
@@ -25,6 +25,7 @@ router.get('/download/:filename',downloadFile)
 router.post('/getList',auth,listAll);
 router.get('/getEmployees',auth,getEmployees);
 router.post('/getCSV',auth,getCsv);
+router.post('/getFilterData',auth,filterData);
 
 
 router.post('/validate',auth,(req,res)=> {
