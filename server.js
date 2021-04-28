@@ -10,6 +10,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, 'build')))
 //app.set('view engine', 'ejs')
 //app.set("views", path.join(__dirname, "public"))
+app.use('',require('./routes/api'))
 
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
@@ -17,5 +18,4 @@ app.get('/*', function (req, res) {
 
 connectToMongoDB()
 
-app.use('',require('./routes/api'))
 app.listen('3000')
