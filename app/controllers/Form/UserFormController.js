@@ -3,17 +3,16 @@ const UserForm = require("../../models/UserForm")
 exports.submitForm = async (req,res) => {
 try{
     req.body.userId = req.user.id
-    console.log(req.user)
-	console.log(req.body.user_id)
+  
     if (req.body.user_id != "") {
         req.body.userId = req.body.employeeId
 
         if (req.body.fileName == NULL || req.body.originalFileName == NULL) {
-            let oldForm = await UserForm.find({_id:req.body._id});
+            let oldForm = await UserForm.find({_id:req.body.user_id});
             req.body.fileName = oldForm.fileName;
             req.body.originalFileName = oldForm.originalFileName;
         }
-        await UserForm.updateOne({_id:req.body._id},req.body)
+        await UserForm.updateOne({_id:req.body.user_id},req.body)
         return res.json({message: "Form updated"})
     } 
     let userForm = new UserForm(req.body);
