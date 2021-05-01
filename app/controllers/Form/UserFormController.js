@@ -5,9 +5,11 @@ try{
     req.body.userId = req.user.id
   
     if (req.body.user_id != "") {
+	console.log(req.body);
         req.body.userId = req.body.employeeId
-        if (req.body.fileName == null || req.body.originalFileName == null) {
-            let oldForm = await UserForm.find({_id:req.body.user_id});
+        if (req.body.fileName == 'NULL' || req.body.fileName == 'null' || req.body.fileName == null || req.body.originalFileName == null) {
+            let oldForm = await UserForm.findOne({_id:req.body.user_id});
+	console.log(oldForm,"OLD FORM")
             req.body.fileName = oldForm.fileName;
             req.body.originalFileName = oldForm.originalFileName;
         }
