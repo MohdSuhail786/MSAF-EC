@@ -9,3 +9,14 @@ exports.getEmployees = async (req,res) => {
         console.log(err.message)
     }
 }
+exports.deleteEmployee = async (req,res) => {
+    try {
+        if (req.body.employeeId == null) {
+            return res.json("Error").status(200)
+        }
+        await User.deleteOne({_id:req.body.employeeId})
+        return res.json("Employee deleted successfully").status(200)
+    } catch (e) {
+        console.log(e.message)
+    }
+}
