@@ -1,5 +1,6 @@
 
 exports.downloadFile = (req,res) => {
     let filePath = "uploads/" + req.params.filename;
-    res.download(filePath)
+    console.log(filePath);
+	res.download(filePath,(err)=>{console.log(err);})
 }
