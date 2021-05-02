@@ -20,7 +20,7 @@ router.get('/protected',auth,(req,res) => {
 
 router.post('/upload',auth,fileUpload)
 router.post('/submitForm',auth,submitForm)
-router.get('/download/:filename',downloadFile)
+router.get('/download/:filename/:originalname',downloadFile)
 
 router.post('/getList',auth,listAll);
 router.get('/getEmployees',auth,getEmployees);
