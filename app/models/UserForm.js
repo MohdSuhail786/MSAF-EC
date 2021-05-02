@@ -13,6 +13,9 @@ const userFormSchema = new mongoose.Schema({
         address: {
             type: String,
         },
+        subdivision: {
+            type: String,
+        },
         accountId: {
             type: String,
         },
