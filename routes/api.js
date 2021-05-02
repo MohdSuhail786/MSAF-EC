@@ -5,7 +5,7 @@ const {login} = require('../app/controllers/Auth/LoginController')
 const { refreshToken } = require('../app/controllers/Auth/RefreshTokenController')
 const { fileUpload } = require('../app/controllers/FileHandling/FileUploadController')
 const { downloadFile } = require('../app/controllers/FileHandling/FileDownloadController')
-const { submitForm } = require('../app/controllers/Form/UserFormController')
+const { submitForm, deleteFormData } = require('../app/controllers/Form/UserFormController')
 const { listAll } = require('../app/controllers/Form/ListController')
 const { getEmployees, deleteEmployee } = require('../app/controllers/Employee/EmployeeList')
 const { getCsv, filterData } = require('../app/controllers/Employee/GetCSV')
@@ -20,6 +20,7 @@ router.get('/protected',auth,(req,res) => {
 
 router.post('/upload',auth,fileUpload)
 router.post('/submitForm',auth,submitForm)
+router.post('/deleteForm',auth,deleteFormData)
 router.get('/download/:filename/:originalname',downloadFile)
 
 router.post('/getList',auth,listAll);
